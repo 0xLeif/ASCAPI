@@ -10,7 +10,6 @@ ASCAPI.instance.configure()
 
 print("Fetch")
 
-
 ASCAPI.instance.fetch(route: .apps)
     .value {
         print("\($0)")

@@ -11,6 +11,7 @@ extension ASCAPI {
     enum Constants {
         static let signerKey = "PRIVATE_KEY"
         static let header = JWTHeader(alg: "ES256", typ: "JWT", kid: "PRIVATE_ID")
+        // TODO: JWTSigner.es256(key: ASCAPI.Constants.signerKey)
         static let signer = JWTSigner.hs256(key: ASCAPI.Constants.signerKey)
         static let expirationTime: TimeInterval = 60 * 10
         static let issuer = IssuerClaim(value: "ISSUER_ID")

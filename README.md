@@ -3,4 +3,16 @@
 A description of this package.
 # ASCAPI
 
+## Example Swift
+```
+ASCAPI.instance
+    .configure()
+    .fetch(route: .apps)
+    .value { print("\($0)") }
+    .store(in: &bag)
+```
+
+## Example CURL
+```
 curl -v -H 'Authorization: Bearer <TOKEN>' "https://api.appstoreconnect.apple.com/v1/apps"
+```
