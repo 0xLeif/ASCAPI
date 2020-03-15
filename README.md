@@ -5,6 +5,10 @@ A description of this package.
 
 ## Example Swift
 ```
+import OpenCombine
+
+var bag = [AnyCancellable]()
+
 ASCAPI.instance
     .configure()
     .fetch(route: .apps)
