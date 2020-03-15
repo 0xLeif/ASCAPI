@@ -14,7 +14,7 @@ import FoundationNetworking
 
 public class ASCAPI {
     public enum Route: String {
-        case account
+        case apps
     }
     
     public static var instance: ASCAPI = {
@@ -22,10 +22,10 @@ public class ASCAPI {
     }()
     
     // Configuations
-    public var apiKey: String?
+    public var token: String?
     
     // Constants
-    internal let path: String = "https://api.appstoreconnect.apple.com"
+    internal let path: String = "https://api.appstoreconnect.apple.com/v1"
     
     // Lazy Variables
     internal lazy var url: URL = URL(string: path)!

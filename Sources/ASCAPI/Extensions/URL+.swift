@@ -13,7 +13,13 @@ import FoundationNetworking
 import OpenCombine
 
 public extension URL {
-    func request(forRoute route: ASCAPI.Route, withID id: Int? = nil) -> URLRequest {
+    func request(forRoute route: ASCAPI.Route?, withID id: Int? = nil) -> URLRequest {
+        guard let route = route else {
+            return URLRequest(url: self,
+                              cachePolicy: .useProtocolCachePolicy,
+                              timeoutInterval: 10.0)
+        }
+
         let path = route.rawValue.replacingOccurrences(of: "_", with: "/")
         
         guard let id = id else {

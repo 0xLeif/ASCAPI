@@ -15,14 +15,14 @@ import OpenCombineFoundation
 
 public extension URLRequest {
     mutating func dataTaskPublish(method: String = "GET", withBody body: Data? = nil) -> URLSession.OCombine.DataTaskPublisher {
-        guard let apiKey = ASCAPI.instance.apiKey else {
-            fatalError("You have not set the ASC API Key")
+        guard let token = ASCAPI.instance.token else {
+            fatalError("You have not set the ASC JWT Token")
         }
         
         let headers = [
             "Content-Type": "application/json; charset=utf-8",
             "cache-control": "no-cache",
-            "Authorization": "Bearer \(apiKey)"
+            "Authorization": "Bearer \(token)"
         ]
         
         httpMethod = method

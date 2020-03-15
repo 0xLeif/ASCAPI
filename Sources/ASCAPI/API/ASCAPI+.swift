@@ -1,10 +1,10 @@
 //
-//  ASCAPI.swift
+//  ASCAPI+.swift
 //  
 //
 //  Created by Zach Eriksen
 //
-
+import JWT
 import Foundation
 import OpenCombine
 
@@ -13,15 +13,7 @@ import FoundationNetworking
 #endif
 
 public extension ASCAPI {
-    
-    @discardableResult
-    func configure(apiKey: String) -> Self {
-        self.apiKey = apiKey
-        
-        return self
-    }
-    
-    func fetch(route: Route) -> AnyPublisher<Any, Error> {
+    func fetch(route: Route?) -> AnyPublisher<Any, Error> {
         var request = url.request(forRoute: route)
         
         return request.dataTaskPublish()
@@ -38,7 +30,7 @@ public extension ASCAPI {
         .eraseToAnyPublisher()
     }
     
-    func get<T: Codable>(route: Route) -> AnyPublisher<T, Error> {
+    func get<T: Codable>(route: Route?) -> AnyPublisher<T, Error> {
         var request = url.request(forRoute: route)
         
         return request.dataTaskPublish()
