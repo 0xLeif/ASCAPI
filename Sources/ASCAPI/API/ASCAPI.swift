@@ -16,17 +16,17 @@ public class ASCAPI {
     public enum Route: String {
         case apps
     }
-    
+
     public static var instance: ASCAPI = {
         ASCAPI()
     }()
-    
+
     // Configuations
     public var token: String?
-    
+
     // Constants
     internal let path: String = "https://api.appstoreconnect.apple.com/v1"
-    
+
     // Lazy Variables
     internal lazy var url: URL = URL(string: path)!
 }

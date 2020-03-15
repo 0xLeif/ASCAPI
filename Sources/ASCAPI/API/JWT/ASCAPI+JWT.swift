@@ -31,11 +31,11 @@ extension ASCAPI {
         }
 
         print("Made Token")
-        
+
         self.token = token
-        
+
         print("Token: \(token)")
-        
+
         return self
     }
 }

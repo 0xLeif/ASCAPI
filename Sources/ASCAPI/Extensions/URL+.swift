@@ -21,7 +21,7 @@ public extension URL {
         }
 
         let path = route.rawValue.replacingOccurrences(of: "_", with: "/")
-        
+
         guard let id = id else {
             return URLRequest(url: appendingPathComponent(path),
                               cachePolicy: .useProtocolCachePolicy,

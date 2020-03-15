@@ -18,19 +18,19 @@ public extension URLRequest {
         guard let token = ASCAPI.instance.token else {
             fatalError("You have not set the ASC JWT Token")
         }
-        
+
         let headers = [
             "Content-Type": "application/json; charset=utf-8",
             "cache-control": "no-cache",
             "Authorization": "Bearer \(token)"
         ]
-        
+
         httpMethod = method
         allHTTPHeaderFields = headers
         if let body = body {
             httpBody = body
         }
-        
+
         let session = URLSession.shared.ocombine
         return session.dataTaskPublisher(for: self)
     }

@@ -15,12 +15,11 @@ import FoundationNetworking
 public extension ASCAPI {
     func fetch(route: Route?) -> AnyPublisher<Any, Error> {
         var request = url.request(forRoute: route)
-        
+
         return request.dataTaskPublish()
             .mapError { $0 as Error }
             .compactMap {
                 do {
-
                     return try JSONSerialization.jsonObject(with: $0.data, options: [])
                 } catch {
                     print("Error: \(error)")
@@ -29,10 +28,10 @@ public extension ASCAPI {
         }
         .eraseToAnyPublisher()
     }
-    
+
     func get<T: Codable>(route: Route?) -> AnyPublisher<T, Error> {
         var request = url.request(forRoute: route)
-        
+
         return request.dataTaskPublish()
             .mapError { $0 as Error }
             .compactMap {
